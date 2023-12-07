@@ -1,0 +1,54 @@
+{
+ "creation": "2020-10-26 17:03:53.931147",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "attach_image",
+  "image",
+  "image_view"
+ ],
+ "fields": [
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "attach_image",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Attach Image"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "image",
+   "fieldtype": "Image",
+   "label": "Image Uploaded",
+   "options": "attach_image"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "image_view",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Image",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-10-29 17:48:20.680225",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "Custom Design Upload",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

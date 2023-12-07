@@ -1,0 +1,37 @@
+{
+ "add_total_row": 0,
+ "creation": "2019-06-03 15:26:32.148533",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2019-10-21 04:01:49.490030",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "Sales Tracking",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "select name as \"SO#:Data:220\",\nsales_channel as \"Channel:Data:120\",\n\npo_no as \"PO#:Data:120\",\nshipping_service as \"Shipping Service:Data:120\",\nshipment_details as \"Tracking:Data:120\",\n\tshipment_cost as \"Shipping Amount:Data:200\",\n\ttransaction_date as \"Date:Data:220\"\n\t\nfrom `tabSales Order` order by creation DESC;",
+ "ref_doctype": "Sales Order",
+ "report_name": "Sales Tracking",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "Maintenance User"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Stock User"
+  }
+ ]
+}

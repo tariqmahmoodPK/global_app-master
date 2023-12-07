@@ -1,0 +1,20 @@
+.modal .form-section {
+    padding: 3px 0px;
+}
+.modal .checkbox {
+    /* position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 50%; */
+}
+.modal-dialog{
+    width: 50%;
+}
+/* .modal .form-section .btn {
+    background: #5463ce;
+    padding: 2px 6px;
+    color: white;
+    font-size: medium;
+    margin-left: 79.5%;
+} */

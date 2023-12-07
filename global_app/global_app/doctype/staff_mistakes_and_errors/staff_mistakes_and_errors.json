@@ -1,0 +1,118 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2020-09-02 23:41:03.695464",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "user",
+  "user_name",
+  "so",
+  "date",
+  "order_date",
+  "errormistake",
+  "mistake_cost",
+  "attach_mistake_image",
+  "mistake_image",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fetch_from": "user.full_name",
+   "fieldname": "user_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "User Name",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "default": "Today",
+   "fieldname": "order_date",
+   "fieldtype": "Date",
+   "label": "Order Date"
+  },
+  {
+   "fieldname": "errormistake",
+   "fieldtype": "Small Text",
+   "label": "Error/Mistake"
+  },
+  {
+   "default": "0",
+   "fieldname": "mistake_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Mistake Cost"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "so",
+   "fieldtype": "Link",
+   "label": "SO",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "attach_mistake_image",
+   "fieldtype": "Attach",
+   "label": "Attach Mistake Image"
+  },
+  {
+   "fieldname": "mistake_image",
+   "fieldtype": "Image",
+   "label": "Mistake Image",
+   "options": "attach_mistake_image"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "SME-"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Staff Mistakes and Errors",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-10-15 19:50:55.675125",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "Staff Mistakes and Errors",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "user",
+ "track_changes": 1
+}

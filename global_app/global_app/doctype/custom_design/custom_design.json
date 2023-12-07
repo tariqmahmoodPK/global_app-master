@@ -1,0 +1,172 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2020-09-29 20:28:24.984343",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "naming_series",
+  "sales_order",
+  "pay_later",
+  "customer",
+  "customer_name",
+  "company_name",
+  "column_break_10",
+  "date_submitted",
+  "email_address",
+  "phone_number",
+  "retailbroker",
+  "section_break_13",
+  "upload_images",
+  "section_break_17",
+  "custom_design_items",
+  "from_controller",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "CD-",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sales Order",
+   "options": "Sales Order",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Custom Design",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "custom_design_items",
+   "fieldtype": "Table",
+   "label": "Custom Design Items",
+   "options": "Custom Design Items"
+  },
+  {
+   "fetch_from": "sales_order.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "default": "Billing",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status",
+   "options": "\nBilling\nDesigning\nPrinting\nFinishing\nShipping\nShipped"
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date_submitted",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date Submitted",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer.email_id",
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "label": "Email Address"
+  },
+  {
+   "fetch_from": "customer.mobile_no",
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "retailbroker",
+   "fieldtype": "Select",
+   "label": "Retail/Broker",
+   "options": "\nRetail\nBroker"
+  },
+  {
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "pay_later",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Pay Later"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval: doc.status == \"Printing\" || doc.status == \"Finishing\" || doc.status == \"Shipping\" || (doc.status == \"Billing\" && doc.pay_later == 1)",
+   "fieldname": "upload_images",
+   "fieldtype": "Table",
+   "label": "Upload Images",
+   "options": "Custom Design Upload"
+  },
+  {
+   "fieldname": "from_controller",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "From Controller"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2020-10-28 00:36:01.511654",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "Custom Design",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

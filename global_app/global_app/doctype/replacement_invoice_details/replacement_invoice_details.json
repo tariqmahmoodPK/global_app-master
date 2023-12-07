@@ -1,0 +1,69 @@
+{
+ "creation": "2020-09-18 00:06:00.664601",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "item_name",
+  "attach_image",
+  "image",
+  "item_image",
+  "tracking_number"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: !doc.parent.includes(\"New Shipping Claims\")",
+   "fieldname": "attach_image",
+   "fieldtype": "Attach",
+   "label": "Attach Image"
+  },
+  {
+   "depends_on": "eval: !doc.parent.includes(\"New Shipping Claims\")",
+   "fieldname": "image",
+   "fieldtype": "Image",
+   "label": "Image",
+   "options": "attach_image"
+  },
+  {
+   "fieldname": "item_image",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Image",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tracking_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tracking Number",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-02-04 23:03:56.303472",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "Replacement Invoice Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

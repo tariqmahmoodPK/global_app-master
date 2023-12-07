@@ -1,0 +1,141 @@
+{
+ "creation": "2020-07-03 17:31:14.960391",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "production",
+  "production_url",
+  "test_url",
+  "credentials_section",
+  "username",
+  "password",
+  "update_sales_order_from_ps",
+  "update_missing_shipping_details",
+  "ship_from_section",
+  "name1",
+  "attention_name",
+  "addressline",
+  "city",
+  "state_province_code",
+  "postal_code",
+  "country_code",
+  "for_international_shipment_section",
+  "phone_no"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "production",
+   "fieldtype": "Check",
+   "label": "Production"
+  },
+  {
+   "fieldname": "production_url",
+   "fieldtype": "Data",
+   "label": "Production URL"
+  },
+  {
+   "fieldname": "test_url",
+   "fieldtype": "Data",
+   "label": "Test URL"
+  },
+  {
+   "fieldname": "credentials_section",
+   "fieldtype": "Section Break",
+   "label": "Credentials"
+  },
+  {
+   "fieldname": "username",
+   "fieldtype": "Data",
+   "label": "Username"
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Password",
+   "label": "Password"
+  },
+  {
+   "fieldname": "update_sales_order_from_ps",
+   "fieldtype": "Button",
+   "label": "Update Sales Order from PS"
+  },
+  {
+   "fieldname": "update_missing_shipping_details",
+   "fieldtype": "Button",
+   "label": "Update Missing Shipping details"
+  },
+  {
+   "fieldname": "ship_from_section",
+   "fieldtype": "Section Break",
+   "label": "Ship From"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "attention_name",
+   "fieldtype": "Data",
+   "label": "Attention Name"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "state_province_code",
+   "fieldtype": "Data",
+   "label": "State Province Code"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Data",
+   "label": "Postal Code"
+  },
+  {
+   "fieldname": "country_code",
+   "fieldtype": "Data",
+   "label": "Country Code"
+  },
+  {
+   "fieldname": "addressline",
+   "fieldtype": "Data",
+   "label": "Address Line"
+  },
+  {
+   "fieldname": "phone_no",
+   "fieldtype": "Data",
+   "label": "Phone No"
+  },
+  {
+   "fieldname": "for_international_shipment_section",
+   "fieldtype": "Section Break",
+   "label": "For International Shipment"
+  }
+ ],
+ "issingle": 1,
+ "modified": "2020-10-28 01:21:55.321433",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "UPS Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

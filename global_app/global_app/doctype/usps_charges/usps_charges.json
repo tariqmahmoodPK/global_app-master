@@ -1,0 +1,36 @@
+{
+ "creation": "2020-08-25 19:21:44.713206",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "shipment",
+  "charge"
+ ],
+ "fields": [
+  {
+   "fieldname": "shipment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shipment",
+   "options": "Shipping Service"
+  },
+  {
+   "fieldname": "charge",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Charge"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-09-30 22:40:12.887758",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "USPS Charges",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

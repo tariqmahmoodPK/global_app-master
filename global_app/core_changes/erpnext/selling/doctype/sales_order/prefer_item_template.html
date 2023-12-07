@@ -1,0 +1,55 @@
+
+
+{% if total_data%}
+<table class="table table-hover">
+        <thead>
+            <tr>
+                {% for col in columns %}
+                <th>
+                    {{col}}
+                </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for rec in total_data %}
+            <tr>
+                {% for col in columns %}
+                <td>
+                    {{- frappe.format(rec[col]) -}}
+                </td>
+                {% endfor %} 
+                <td>
+                    <button class='btn btn-small' onclick="do_action('{{rec.Hardwares}}')">SELECT</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {%else%}
+    <br>
+    <b style="color: red">Customer prefrence for this item does not exists</b>
+    <br>
+    {%endif%}
+    <script>
+    function do_action(route){
+        console.log(route)
+        //console.log(cur_frm)
+        //this.cur_dialog.fields_dict.items.$wrapper.html("")
+        this.cur_dialog.hide()
+        var item_array=route.split(', ')
+        if (item_array.length <2){
+            msgprint("Missing pole set or mounting hardware","Warning")
+            this.cur_dialog.set_df_property("pool_set","options",item_array[1]);
+        }
+        else{
+            this.cur_dialog.set_df_property("mounting_HW","options",item_array[0]);
+            this.cur_dialog.set_df_property("pool_set","options",item_array[1]);
+        }
+        
+        this.cur_dialog.fields_dict.pool_set.$input[0][0].selected=true
+        this.cur_dialog.fields_dict.mounting_HW.$input[0][0].selected=true 
+        
+    }
+    </script>
+    

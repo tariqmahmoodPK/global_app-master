@@ -1,0 +1,63 @@
+{
+ "creation": "2019-06-24 10:58:56.293356",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "carrier",
+  "method",
+  "shipped_date",
+  "tracking_id",
+  "mp_item_id",
+  "quantity"
+ ],
+ "fields": [
+  {
+   "fieldname": "carrier",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Carrier"
+  },
+  {
+   "fieldname": "method",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Method"
+  },
+  {
+   "fieldname": "shipped_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Shipped Date"
+  },
+  {
+   "fieldname": "tracking_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tracking ID"
+  },
+  {
+   "fieldname": "mp_item_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "MP Item ID"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Quantity"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-10-24 05:00:19.437813",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integrations",
+ "name": "Controller Tracking Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

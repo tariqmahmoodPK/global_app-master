@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2020-11-23 16:34:40.384070",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2020-11-23 16:35:13.930543",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "dashboard-controller",
+ "owner": "Administrator",
+ "page_name": "Dashboard Controller",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Dashboard Controller"
+}

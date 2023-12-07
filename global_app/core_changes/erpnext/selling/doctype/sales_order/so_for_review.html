@@ -1,0 +1,45 @@
+
+<p><b>Customer: </b>{{total_data.customer}}</p>
+
+<hr>
+<div class="row">
+    <div class="col col-sm-6 col-md-6">
+        <p><b>Billing Address</b></p>{{total_data.address_display}}</div>
+    <div class="col col-sm-6 col-md-6"><p><b>Shipping Address</b></p>{{total_data.shipping_address}}</div>
+</div>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			{% for col in columns %}
+			<th>
+				{{col}}
+			</th>
+			{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for row in items %} 
+		<tr>
+			{% for col in columns %}
+			<td>
+				{{- frappe.format(row[col]) -}}
+			</td>
+			{% endfor %}
+		</td>
+		{% endfor %}
+	</tbody>
+</table>
+<button class='btn btn-primary pull-right' " onclick="duplicate('{{total_data.so}}')">DUPLICATE</button>
+<br>
+<br>
+<script>
+function duplicate(so){
+    console.log(this)
+    cur_frm.copy_doc();
+    this.cur_dialog.hide()
+    this.cur_dialog.hide()
+    //s$('.modal-dialog').hide()
+    msgprint("Sales Order duplicated","Successful");
+   
+}
+</script>

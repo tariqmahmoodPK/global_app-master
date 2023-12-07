@@ -1,0 +1,161 @@
+{
+ "creation": "2020-09-29 20:31:21.912727",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "item_name",
+  "design_section",
+  "attach_image",
+  "image",
+  "column_break_6",
+  "graphic_designer",
+  "taken_over_by",
+  "details_section",
+  "rush",
+  "product_type",
+  "needs_to_ship_by",
+  "sent_to_print_by",
+  "column_break_10",
+  "size",
+  "singledouble_sided",
+  "shippinglocal_pickup",
+  "pick_up_date",
+  "pick_up_time",
+  "section_break_13",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "attach_image",
+   "fieldtype": "Attach",
+   "label": "Attach Image"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "image",
+   "fieldtype": "Image",
+   "label": "Design Image",
+   "options": "attach_image"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Notes"
+  },
+  {
+   "fieldname": "design_section",
+   "fieldtype": "Section Break",
+   "label": "Design"
+  },
+  {
+   "fieldname": "graphic_designer",
+   "fieldtype": "Data",
+   "label": "Graphic Designer"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "rush",
+   "fieldtype": "Check",
+   "label": "Rush"
+  },
+  {
+   "fieldname": "product_type",
+   "fieldtype": "Data",
+   "label": "Product Type"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "size",
+   "fieldtype": "Data",
+   "label": "Size"
+  },
+  {
+   "fieldname": "singledouble_sided",
+   "fieldtype": "Select",
+   "label": "Single/Double Sided",
+   "options": "\nSingle Sided\nDouble Sided"
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "needs_to_ship_by",
+   "fieldtype": "Date",
+   "label": "Needs to Ship By"
+  },
+  {
+   "fieldname": "shippinglocal_pickup",
+   "fieldtype": "Select",
+   "label": "Shipping/Local Pickup",
+   "options": "\nShipping\nLocal Pickup"
+  },
+  {
+   "fieldname": "sent_to_print_by",
+   "fieldtype": "Data",
+   "label": "Sent to Print by"
+  },
+  {
+   "depends_on": "eval: doc.shippinglocal_pickup == \"Local Pickup\"",
+   "fieldname": "pick_up_date",
+   "fieldtype": "Date",
+   "label": "Pick Up Date"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "taken_over_by",
+   "fieldtype": "Data",
+   "label": "Taken Over by"
+  },
+  {
+   "depends_on": "eval: doc.shippinglocal_pickup == \"Local Pickup\"",
+   "fieldname": "pick_up_time",
+   "fieldtype": "Time",
+   "label": "Pick Up Time"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-10-28 18:20:05.496204",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "Custom Design Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,37 @@
+{
+ "creation": "2021-02-04 21:23:42.502820",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tracking_number",
+  "lost_box"
+ ],
+ "fields": [
+  {
+   "fieldname": "tracking_number",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Tracking Number"
+  },
+  {
+   "columns": 2,
+   "default": "0",
+   "fieldname": "lost_box",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Lost Box"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-02-04 21:24:10.624322",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "Shipping Claims Tracking Numbers",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

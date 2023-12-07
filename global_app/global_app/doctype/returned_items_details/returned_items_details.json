@@ -1,0 +1,153 @@
+{
+ "creation": "2020-09-21 02:35:46.564532",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "remarks",
+  "section_break_2",
+  "item",
+  "item_name",
+  "images_section",
+  "box",
+  "box_image",
+  "product_1",
+  "label",
+  "label_image",
+  "product_3",
+  "column_break_8",
+  "box_content",
+  "box_content_image",
+  "product_2",
+  "section_break_11",
+  "reason",
+  "tracking_number_1"
+ ],
+ "fields": [
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Remarks",
+   "options": "\nNew/Good\nOpened/No Good",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item ",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: !doc.parent.includes(\"New Returned Items\")",
+   "fieldname": "images_section",
+   "fieldtype": "Section Break",
+   "label": "Images"
+  },
+  {
+   "depends_on": "eval: !doc.parent.includes(\"New Returned Items\")",
+   "fieldname": "box",
+   "fieldtype": "Attach",
+   "label": "Box"
+  },
+  {
+   "depends_on": "eval: !doc.parent.includes(\"New Returned Items\")",
+   "fieldname": "box_image",
+   "fieldtype": "Image",
+   "label": "Box Image",
+   "options": "box"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: !doc.parent.includes(\"New Returned Items\")",
+   "fieldname": "box_content",
+   "fieldtype": "Attach",
+   "label": "Box Content"
+  },
+  {
+   "depends_on": "eval: !doc.parent.includes(\"New Returned Items\")",
+   "fieldname": "box_content_image",
+   "fieldtype": "Image",
+   "label": "Box Content Image",
+   "options": "box_content"
+  },
+  {
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "product_1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Product Image 1",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: !doc.parent.includes(\"New Returned Items\")",
+   "fieldname": "label",
+   "fieldtype": "Attach",
+   "label": "Label"
+  },
+  {
+   "depends_on": "eval: !doc.parent.includes(\"New Returned Items\")",
+   "fieldname": "label_image",
+   "fieldtype": "Image",
+   "label": "Label Image",
+   "options": "label"
+  },
+  {
+   "fieldname": "product_2",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Product Image 2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "product_3",
+   "fieldtype": "Data",
+   "label": "Product Image 3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tracking_number_1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tracking Number",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-01-28 06:33:01.783612",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "Returned Items Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

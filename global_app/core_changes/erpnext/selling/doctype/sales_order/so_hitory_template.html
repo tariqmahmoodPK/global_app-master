@@ -1,0 +1,56 @@
+
+
+<p style="color:#8d99a6">Showing recent {{length}} of {{total}} orders</p>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			{% for col in columns %}
+			<th>
+				{{col}}
+			</th>
+			{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+        {% for rec in total_data %}
+		<tr>
+			{% for col in columns %}
+			<td>
+				{{- frappe.format(rec[col]) -}}
+			</td>
+            {% endfor %}
+            <td>
+                <button class='btn btn-small' onclick="do_action('{{rec.route}}')">SELECT</button>
+            </td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<script>
+function do_action(route){
+	console.log(route)
+	//window.location.href = route;
+	//this.cur_dialog.hide()
+	frappe.call(
+					{
+						method: "erpnext.selling.doctype.sales_order.sales_order.get_so_for_review",
+						args: {
+							name:route
+						},
+						freeze: true,
+						callback(response_in) {
+							if(response_in.message){
+								var dl = new frappe.ui.Dialog({
+									title: __("Sales Order Details:"),
+									'fields': [
+										{'fieldname': 'overview', 'fieldtype': 'HTML'},
+									]
+								});
+								dl.fields_dict.overview.$wrapper.html(response_in.message);
+								dl.show()
+
+							}
+						}
+					});
+}
+</script>

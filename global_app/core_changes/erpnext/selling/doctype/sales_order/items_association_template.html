@@ -1,0 +1,163 @@
+
+
+
+<div class="col col-sm-6 col-md-6" style="border-right: 1px solid green;">
+        <p><b>Item(s) selected by same customer last time with this one:</b></p>
+        {% if count_as > 0%} 
+        <table class="table table-hover">
+                <thead>
+                    <tr>
+                        
+                        <th>
+                            <p>Item Code</p> 
+                        </th>
+                        <th>
+                                <p>Item Name</p>
+                        </th>
+                        <th>
+                                <input class="modal-ckbx" type="checkbox" id="select-all-as" onchange="checkbox_chnage2()" >
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rec in data_as %}
+                    <tr>
+                        
+                        <td>
+                            <p id="{{rec.code_id}}">{{rec.item_code}}</p>
+                        </td>
+                        <td>
+                                {{rec.item_name}}
+                            </td>
+                        
+                        <td>
+                                <input class="modal-ckbx" type="checkbox" id="{{rec.chkbox_id}}" >
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>
+                                <button class='btn btn-success' onclick="checking()">ADD</button>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+            {%endif%}
+            {% if count_as == -1%}
+            <h2>No data found</h2>
+            {%endif%}
+           
+
+</div>
+<div class="col col-sm-6 col-md-6" style=" border-left: 1px solid green;padding-left: 1%;">
+    <p><b>Associated Items with this one:</b></p>
+    {% if count >0%}    
+    <table class="table table-hover">
+                <thead>
+                        <tr>
+                        
+                                <th>
+                                    <p>Item Code</p>
+                                </th>
+                                <th>
+                                        <p>Item Name</p>
+                                </th>
+                                <th>
+                                        <input type="checkbox" class="modal-ckbx" id="select-all-his" onchange="checkbox_chnage()"> 
+
+                                </th>
+                                
+                            </tr>
+                </thead>
+                <tbody>
+                    {% for rec in data %}
+                    <tr>
+                            <td>
+                                    <p id="{{rec.code_id}}">{{rec.item_code}}</p>
+                                </td>
+                                <td>
+                                        {{rec.item_name}}
+                                    </td>
+                                
+                                <td>
+                                        <input class="modal-ckbx" type="checkbox" id="{{rec.chkbox_id}}">
+                                </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                            <td colspan="2"></td>
+                            <td>
+                                    <button class='btn btn-success' onclick="checking2()">ADD</button>
+                                </td>
+                        </tr>
+                </tbody>
+            </table>
+            {%endif%}
+            {% if count == -1%}
+            <h2>No data found</h2>
+            {%endif%}
+           
+            <input type="hidden" id="t-count_as" value="{{count_as}}">
+            <input type="hidden" id="t-count_hi" value="{{count}}">
+            <input type="hidden" id="sec_count" value="{{count_as}}"> 
+            
+</div>
+</div>
+<script>
+function checking2(){
+    for(var i=0 ;i<=$('#t-count_hi').val();i++){
+        if( $('#chk_his'+i).is(':checked')){
+        //console.log($('#code_his0').html())
+        var child2 = cur_frm.add_child("items");
+        frappe.model.set_value(child2.doctype, child2.name, "item_code", $('#code_his'+i).html());
+        cur_frm.refresh_field('items')
+        }
+    }
+}
+function checking(){
+    for(var i=0 ;i<=$('#sec_count').val();i++){
+        if( $('#chk_as'+i).is(':checked')){
+        //console.log($('#code_as0').html())
+        var child2 = cur_frm.add_child("items");
+        frappe.model.set_value(child2.doctype, child2.name, "item_code", $('#code_as'+i).html());
+        cur_frm.refresh_field('items')
+        }
+    }
+}
+function checkbox_chnage(){
+    console.log($('#select-all-his').is(':checked'))
+    if($('#select-all-his').is(':checked')){
+        for(var i=0 ;i<=$('#t-count_hi').val();i++){
+        console.log( $('#chk_his'+i).is(':checked'));
+        $('#chk_his'+i).prop("checked", true);
+    }
+    }
+    else{
+    for(var i=0 ;i<=$('#t-count_hi').val();i++){
+        //console.log( $('#chk_his'+i).is(':checked'));
+        $('#chk_his'+i).prop("checked", false);
+    }
+}
+}
+
+function checkbox_chnage2(){
+    console.log($('#select-all-as').is(':checked'))
+    // console.log($('#sec_count').val())
+    // console.log($('#t-count_as').val())
+    // console.log($('#t-count_hi').val())
+    if($('#select-all-as').is(':checked')){
+        for(var i=0 ;i<=$('#sec_count').val();i++){
+        console.log( $('#chk_as'+i).is(':checked'));
+        $('#chk_as'+i).prop("checked", true);
+    }
+    }
+    else{
+    for(var i=0 ;i<=$('#sec_count').val();i++){
+        console.log( $('#chk_as'+i).is(':checked'));
+        $('#chk_as'+i).prop("checked", false);
+    }
+}
+}
+</script>

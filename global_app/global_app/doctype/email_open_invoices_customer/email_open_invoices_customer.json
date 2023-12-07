@@ -1,0 +1,35 @@
+{
+ "creation": "2020-04-29 16:12:02.249740",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "email"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-04-29 16:21:53.531382",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "Email Open Invoices Customer",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

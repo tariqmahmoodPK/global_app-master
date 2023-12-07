@@ -1,0 +1,56 @@
+{
+ "autoname": "Pckg.#####",
+ "creation": "2018-07-06 16:40:41.548940",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "package",
+  "item",
+  "quantity",
+  "packing_slip_no"
+ ],
+ "fields": [
+  {
+   "columns": 4,
+   "fieldname": "package",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Package",
+   "options": "Package",
+   "reqd": 1
+  },
+  {
+   "columns": 4,
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "quantity",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "packing_slip_no",
+   "fieldtype": "Data",
+   "label": "packing slip no"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-10-29 05:28:01.082249",
+ "modified_by": "Administrator",
+ "module": "Stock",
+ "name": "Packing Slip packages",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,28 @@
+{
+ "creation": "2021-02-04 23:13:37.038356",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tracking_number"
+ ],
+ "fields": [
+  {
+   "fieldname": "tracking_number",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Tracking Number"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-02-05 00:08:37.373592",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "Replacement Tracking Numbers",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

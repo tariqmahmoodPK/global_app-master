@@ -1,0 +1,50 @@
+{
+ "autoname": "PKG.######",
+ "creation": "2018-08-01 10:09:58.678846",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "package",
+  "items",
+  "quantity",
+  "weight"
+ ],
+ "fields": [
+  {
+   "fieldname": "package",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Package",
+   "options": "Package",
+   "reqd": 1
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Long Text",
+   "label": "Items",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "label": "Weight"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-10-21 04:05:36.681734",
+ "modified_by": "Administrator",
+ "module": "Stock",
+ "name": "Packing Slip packages shadow",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,188 @@
+
+<table  style="width: 100%;" id="test">
+    <tr>
+        <td  style="padding: 10px 7px 10px 7px;">
+            Date today: <b>{{frappe.datetime.now().moment._d}}</b>
+            <span style="margin-left: 210px;font-size: 16px"> # of CD:   <b>{{doc.custom_designs_length}}</b></span>
+        </td>
+
+        {% if doc.selected_custom_design_length > 0 %}
+        <td class="text-right" style="padding: 10px 7px 10px 7px;">
+            <button class="btn btn-primary btn-sm primary-action" {{doc.on_edit}}>
+                <i class="visible-xs octicon octicon-plus"></i>
+                    <span class="hidden-xs" data-label="Edit">
+                        <span class="alt-underline">E</span>dit
+                    </span>
+            </button>
+        </td>
+        {%endif%}
+    </tr>
+    <tr>
+        <td style="width: 50%">
+            <table style="width: 100%;overflow-y:scroll;height:680px;display:block;">
+
+                <tr>
+                    <th class="text-center" style="color: white;border-right: 1px solid white;padding: 10px 7px 10px 7px;font-size: 16.5px;font-weight: 300;background-color: #0281B7">Custom Design</th>
+                    <th class="text-center" style="color: white;border-right: 1px solid white; padding: 10px 7px 10px 7px;font-size: 16.5px;font-weight: 300;background-color: #0281B7">Customers Name</th>
+                    <th class="text-center" style="color: white;border-right: 1px solid white; padding: 10px 7px 10px 7px;font-size: 16.5px;font-weight: 300;background-color: #0281B7">Date Submitted</th>
+                    <th class="text-center" style="color: white;border-right: 1px solid white; padding: 10px 7px 10px 7px;font-size: 16.5px;font-weight: 300;background-color: #0281B7">Needs to Ship by</th>
+                    <th class="text-center" style="color: white;border-right: 1px solid white; padding: 10px 7px 10px 7px;font-size: 16.5px;font-weight: 300;background-color: #0281B7">Rush?</th>
+                    <th class="text-center" style="color: white;border-right: 1px solid white; padding: 10px 7px 10px 7px;font-size: 16.5px;font-weight: 300;background-color: #0281B7">Current Status</th>
+                    <th class="text-center" style="color: white;border-right: 1px solid white; padding: 10px 7px 10px 7px;font-size: 16.5px;font-weight: 300;background-color: #0281B7">Order #</th>
+                </tr>
+                {% if doc.custom_designs_length > 0 %}
+                    {%for i in doc.custom_designs %}
+                        {%if doc.selected_row == i.row_name %}
+                            <tr {{i.onclick_td}} style="background-color: #9ea99d">
+                        {%else%}
+                            <tr {{i.onclick_td}}>
+                        {%endif%}
+
+                    <td class="text-center custom_designs_rows" ><a {{i.href_cd}}><b>{{i.name}}</b></a></td>
+                    <td class="text-center custom_designs_rows" ><b>{{i.customer_name}}</b></td>
+                    <td class="text-center custom_designs_rows" ><b>{{i.date_submitted}}</b></td>
+                    <td class="text-center custom_designs_rows" ><b>{{i.needs_to_ship_by}}</b></td>
+                             {%if i.rush%}
+                                <td class="text-center custom_designs_rows" style="color: red"><b>YES</b></td>
+                             {%else%}
+                                 <td class="text-center custom_designs_rows"><b>NO</b></td>
+                             {%endif%}
+                    <td class="text-center custom_designs_rows" ><b>{{i.status}}</b></td>
+                    <td class="text-center custom_designs_rows" ><b>{{i.sales_order}}</b></td>
+                        </tr>
+                    {%endfor%}
+                {%else%}
+                    <tr>
+                        <td class="text-center" colspan="7" style="font-size:20px;padding-top: 250px"> NOTHING TO SHOW</td>
+                    </tr>
+                {%endif%}
+            </table>
+
+        </td>
+        <td style="width: 50%;height: 100%">
+            {% if doc.selected_custom_design_length > 0 %}
+                <div style="border: 1px solid lightgray;height: 680px;padding: 10px 10px 10px 10px;display:block;overflow-y:scroll">
+                    <div style="width: 100%">
+                        {%if doc.selected_custom_design.image%}
+                            <div style="float: left">
+                                {{doc.selected_custom_design.image}}
+                            </div>
+                        {%else%}
+                            <div style="float: left">
+                                <img src="/files/no_image.png" height="300" width="300" style="border: 1px solid black" />
+                            </div>
+                        {%endif%}
+                        <div style="width: 100%">
+                            <table style="width:60%;">
+                                <tr>
+                                    <td class="text-right" style="width: 10%;padding: 10px 10px 10px 10px"><b>Status :</b></td>
+                                    <td class="text-center" style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.status%}{{doc.selected_custom_design.status}}{%endif%}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="width: 10%;padding: 10px 10px 10px 10px"><b>Date Submitted :</b></td>
+                                    <td class="text-center" style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.date_submitted%}{{doc.selected_custom_design.date_submitted}}{%endif%}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="width: 10%;padding: 10px 10px 10px 10px"><b>Sales Order :</b></td>
+                                    <td class="text-center" style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.sales_order%}{{doc.selected_custom_design.sales_order}}{%endif%}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="width: 10%;padding: 10px 10px 10px 10px"><b>Customer :</b></td>
+                                    <td class="text-center" style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.customer_name%}{{doc.selected_custom_design.customer_name}}{%endif%}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-right" style="width: 10%;padding: 10px 10px 10px 10px"><b>Email Address :</b></td>
+                                    <td class="text-center" style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.email_address%}{{doc.selected_custom_design.email_address}}{%endif%}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="width: 10%;padding: 10px 10px 10px 10px"><b>Company Name :</b></td>
+                                    <td class="text-center" style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.company_name%}{{doc.selected_custom_design.company_name}}{%endif%}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="width: 10%;padding: 10px 10px 10px 10px"><b>Phone Number :</b></td>
+                                    <td class="text-center" style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.phone_number%}{{doc.selected_custom_design.phone_number}}{%endif%}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="width: 10%;padding: 10px 10px 10px 10px"><b>Retail/Broker :</b></td>
+                                    <td class="text-center" style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.retailbroker%}{{doc.selected_custom_design.retailbroker}}{%endif%}</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                    <div style="width: 100%;">
+                            <table style="width:100%;">
+                                <tr>
+                                    <td colspan="1" class="text-right" style="width: 25%;padding: 10px 10px 10px 10px"><b>Item Name :</b></td>
+                                    <td colspan="3" style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.item_name%}{{doc.selected_custom_design.item_name}}{%endif%}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="width: 25%;padding: 10px 10px 10px 10px"><b>Sent to print by :</b></td>
+                                    <td style="border-right: 1px solid lightgrey;width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.sent_to_print_by%}{{doc.selected_custom_design.sent_to_print_by}}{%endif%}</td>
+                                    <td class="text-right" style="width: 25%;padding: 10px 10px 10px 10px"><b>Designer :</b></td>
+                                    <td style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.graphic_designer%}{{doc.selected_custom_design.graphic_designer}}{%endif%}</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="text-right" style="width: 25%;padding: 10px 10px 10px 10px"><b>Shipping or Local Pickup :</b></td>
+                                    <td style="border-right: 1px solid lightgrey;width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.shippinglocal_pickup%}{{doc.selected_custom_design.shippinglocal_pickup}}{%endif%}</td>
+                                    <td class="text-right" style="width: 25%;padding: 10px 10px 10px 10px"><b>Taken Over By :</b></td>
+                                    <td style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.taken_over_by%}{{doc.selected_custom_design.taken_over_by}}{%endif%}</td>
+                                </tr>
+                                {%if doc.selected_custom_design.shippinglocal_pickup && doc.selected_custom_design.shippinglocal_pickup == "Local Pickup"%}
+                                    <tr>
+                                        <td class="text-right" style="width: 25%;padding: 10px 10px 10px 10px"><b>Pick Up Date : </b></td>
+                                        <td style="border-right: 1px solid lightgrey;width: 25%;padding: 10px 10px 10px 10px">{{doc.selected_custom_design.pick_up_date}}</td>
+                                        <td class="text-right" style="width: 25%;padding: 10px 10px 10px 10px"><b>Pick Up Time : </b></td>
+                                        <td style="width: 25%;padding: 10px 10px 10px 10px">{{doc.selected_custom_design.pick_up_time}}</td>
+                                    </tr>
+                                {%endif%}
+                                <tr>
+                                    <td class="text-right" style="width: 25%;padding: 10px 10px 10px 10px"><b>Rush? :</b></td>
+                                    <td style="border-right: 1px solid lightgrey;width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.rush == 1%} <span style="color: red">YES</span> {%else%} NO{%endif%}</td>
+                                    <td class="text-right" style="width: 25%;padding: 10px 10px 10px 10px"><b>Needs to Ship By :</b></td>
+                                    <td style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.needs_to_ship_by%}{{doc.selected_custom_design.needs_to_ship_by}}{%endif%}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" style="width: 25%;padding: 10px 10px 10px 10px"><b>Product Type :</b></td>
+                                    <td style="border-right: 1px solid lightgrey;width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.product_type%} {{doc.selected_custom_design.product_type}}{%endif%}</td>
+                                    <td class="text-right" style="width: 25%;padding: 10px 10px 10px 10px"><b>Size :</b></td>
+                                    <td style="width: 25%;padding: 10px 10px 10px 10px">{%if doc.selected_custom_design.size%}{{doc.selected_custom_design.size}}{%endif%}</td>
+                                </tr>
+
+                            </table>
+                            <div style="padding: 10px 10px 10px 10px">
+                                <b>NOTES</b>
+                            </div>
+                         {%if doc.selected_custom_design.notes%}
+
+                            <table style="width: 60%">
+                                <tr>
+                                    <td>
+                                        <div style="height: 258px;width: 100%;padding: 0 10px 10px 10px">
+                                            {{doc.selected_custom_design.notes}}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            {%endif%}
+                        </div>
+                </div>
+            {% else %}
+                            <div class="text-center" style="border: 1px solid lightgray;height: 680px;padding-top: 300px;font-size: 20px">
+                                NOTHING SELECTED
+                            </div>
+            {% endif %}
+
+
+        </td>
+    </tr>
+</table>
+
+<style>
+    .custom_designs_rows {
+        color: black;border-right: 1px solid white;padding: 10px 7px 10px 7px;font-size: 14px;font-weight: 300;
+    }
+</style>

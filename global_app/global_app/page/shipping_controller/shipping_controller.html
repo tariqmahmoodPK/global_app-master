@@ -1,0 +1,135 @@
+<div class="row" style="width: 670%">
+     <div style="float: left;width: 23%">
+         <div class="ups" style="width: 70%;border-radius:3%;padding-left:3%">
+            <h4>UPS</h4>
+            <div class="row">
+                <div class="col col-md-6">Total:</div>
+                <div class="col col-md-6"><b>{{doc.total_ups}}</b></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col col-md-6">Processed:</div>
+                <div class="col col-md-6"><b style="color: green">{{doc.processed_ups}}</b></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col col-md-6">Pending:</div>
+                <div class="col col-md-6"><b style="color: red">{{ doc.total_ups - doc.processed_ups}}</b></div>
+            </div>
+            <hr>
+        </div>
+         <div class="usps" style="width: 70%;border-radius:3%;padding-left:1%">
+            <h4>USPS</h4>
+            <div class="row">
+                <div class="col col-md-6">Total:</div>
+                <div class="col col-md-6"><b>{{doc.total_usps}}</b></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col col-md-6">Processed:</div>
+                <div class="col col-md-6"><b style="color: green">{{doc.processed_usps}}</b></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col col-md-6">Pending:</div>
+                <div class="col col-md-6"><b style="color: red">{{doc.total_usps - doc.processed_usps}}</b></div>
+            </div>
+        <hr>
+         </div>
+    </div>
+
+    <section>
+
+        <div class="firsttable">
+            <div class="col-md-12">
+                <p  class="pull-right">{{doc.showing_count}} of {{doc.total}}</P>
+            </div>
+
+         <table id="myTable">
+           <tr class="rowcolor">
+             <th>
+                 <div class="form-group">
+                    <input type="checkbox" id="select_all" onclick="handle_items_checkbox(this)"/>
+                  </div>
+             </th>
+             <th style="width: 10%">Company</th>
+             <th>PO#</th>
+             <th>SO#</th>
+             <th>DN#</th>
+             <th>PS#</th>
+             <th>Box#</th>
+             <th>Items</th>
+             <th>View PS</th>
+             <th>Capture Wt</th>
+             <!-- <th>Lbs</th> -->
+             <th>Past Wt</th>
+             <th>Carrier</th>
+             <th>Service</th>
+             <th>Print Label</th>
+             <th>View Label</th>
+             <th>Cancel Label</th>
+             <th>Email</th>
+           </tr>
+             {% if doc.data_list_length > 0 %}
+               {% for data in doc.data_list %}
+               <tr>
+               <td><div class="form-group">
+                        <input type="checkbox" class="checkbox" {{data.id}} name="check"/>
+                      </div></td>
+                 <td>{{data.company}}</td>
+                 <td>{{data.po}}</td>
+                 <td>{{data.so}}</td>
+                 <td>{{data.dn}}</td>
+                 <td>{{data.ps}}</td>
+                 <td>{{data.box}}</td>
+                 <td>{{data.items}}</td>
+                   {%if data.ps_ %}
+                        <td><span class="btn btn-small" style="margin-right: 10px;"  {{data.det_view}} ><i class="fa fa-eye"></i></span></td>
+                   {%else%}
+                       <td><span></span></td>
+                   {%endif%}
+                {% if data.weight > 0 %}
+                   <td {{data.weight_color}}><b style="margin-left: 14%;">{{data.weight}}</b>
+                      <span class="tooltiptext">Weight mismatch</span>
+                     </td>
+                {% else %}
+                      <td>
+                    <span class="btn btn-small" style=" margin-right: 10px;position: absolute;" {{data.cap_weight}} {{data.shipment}}><i class="fa fa-balance-scale"></i></span>
+                    <span class="btn btn-small" style=" margin-right: 10px;margin-bottom: 50%;"  {{data.check}}><i class="fa fa-check"></i></span>
+                    </td>
+                {% endif %}
+                 <td>{{data.past_weight}}</td>
+                 <td>{{data.carrier}}</td>
+                 <td>{{data.service}}</td>
+
+                 <td>
+                   <span class="btn btn-small action-print-check"  {{data.label_print}} {{data.shipment}} {{data.wt_n_cap}}><i class="fa fa-print"></i></span>
+                   <span class="btn btn-small"  {{data.check}}><i class="fa fa-check"></i></span>
+                  </td>
+
+                 <td><span class="btn btn-small" style=" margin-right: 10px;" {{data.preview}} {{data.view}}><i class="fa fa-eye"></i></span></td>
+                 <td><span class="btn btn-small" style=" margin-right: 10px;" {{data.cancel_label}} {{data.view}}><i class="fa fa-ban" {{data.cancelled_ind}}></i></span></td>
+                 <td><span class="btn btn-small" style=" margin-right: 10px;" {{data.email}} {{data.view}}><i class="fa fa-envelope" {{data.cancelled_ind}}></i></span></td>
+               </tr>
+               {% endfor %}
+             {% else %}
+                <tr>
+                    <td style="width: 100%; text-align:center" colspan="17">
+                        No Order Found
+                    </td>
+                </tr>
+             {% endif %}
+         </table>
+          <br>
+            {%if doc.showing_count < doc.total%}
+          <div class="form-group">
+            <label for="pagination"></label>
+            <button class="btn btn-small btn-default" id="pagination" onclick="pagination()">More >></button>
+          </div>
+           <input type="hidden" id="page_count" value="{{doc.showing_count}}">
+            {%endif%}
+        </div>
+
+       </section>
+
+</div>

@@ -1,0 +1,3 @@
+{% macro get_alignment(col) %} {%- if col.fieldtype in ('Int', 'Float', 'Currency', 'Check') %} class="text-right" {% endif -%} {% endmacro %} {% if columns %} {% set max_width = '100%' if columns|length > 3 else '600px' %} {% else %} {% set max_width = '600px' %} {% endif %} {% if description %} {% endif %}
+{{ title }} <br>
+{{ description }}

@@ -1,0 +1,79 @@
+{
+ "autoname": "field:controller_id",
+ "creation": "2019-06-18 09:50:58.680035",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "order_id",
+  "channel",
+  "date_time",
+  "customer",
+  "controller_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "order_id",
+   "fieldtype": "Data",
+   "label": "Order ID"
+  },
+  {
+   "fieldname": "channel",
+   "fieldtype": "Data",
+   "label": "Channel"
+  },
+  {
+   "fieldname": "date_time",
+   "fieldtype": "Data",
+   "label": "Date Time"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer"
+  },
+  {
+   "fieldname": "controller_id",
+   "fieldtype": "Data",
+   "label": "Controller Id",
+   "unique": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "modified": "2019-10-21 04:03:59.932089",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integrations",
+ "name": "Channel Controller",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

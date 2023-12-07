@@ -1,0 +1,60 @@
+{
+ "creation": "2019-06-18 09:56:40.618291",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "item_name",
+  "description",
+  "mp_line_item_id",
+  "qty",
+  "stock_in_hand"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  },
+  {
+   "fieldname": "mp_line_item_id",
+   "fieldtype": "Data",
+   "label": "MP_Line Item Id"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Data",
+   "label": "qty"
+  },
+  {
+   "fieldname": "stock_in_hand",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Stock In hand"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-10-24 04:58:53.430455",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integrations",
+ "name": "Controller Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

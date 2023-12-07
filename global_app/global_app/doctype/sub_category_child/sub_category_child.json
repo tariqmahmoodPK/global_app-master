@@ -1,0 +1,29 @@
+{
+ "creation": "2020-11-18 23:29:29.672654",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "category_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "category_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Category Name",
+   "options": "Sub Category"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-11-18 23:29:29.672654",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "Sub Category Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

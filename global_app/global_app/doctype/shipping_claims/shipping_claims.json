@@ -1,0 +1,269 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2020-09-18 00:11:34.043738",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "naming_series",
+  "type",
+  "column_break_5",
+  "posting_date",
+  "cheque_number",
+  "original_invoice_section",
+  "orig_invoice",
+  "claim_date",
+  "claim_number",
+  "results",
+  "orig_tracking_numbers",
+  "column_break_12",
+  "orig_po_number",
+  "approved_amount",
+  "requested_amount",
+  "reason_for_claim",
+  "section_break_16",
+  "original_invoice_items",
+  "replacement_invoice_section",
+  "rep_invoice",
+  "rep_claim_date",
+  "rep_claim_number",
+  "rep_results",
+  "rep_tracking_numbers",
+  "column_break_23",
+  "rep_po_number",
+  "rep_approved_amount",
+  "rep_requested_amount",
+  "rep_request_for_claim",
+  "section_break_27",
+  "replacement_invoice_items",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status",
+   "options": "\nPending\nDenied\nApproved"
+  },
+  {
+   "default": "SC-.type.-.posting_date.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "SC-.type.-.posting_date.-"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "\nUPS\nUSPS",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "orig_invoice.claim_number",
+   "fieldname": "claim_number",
+   "fieldtype": "Data",
+   "label": "Claim Number"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "orig_invoice.claim_date",
+   "fieldname": "claim_date",
+   "fieldtype": "Date",
+   "label": "Claim Date"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval: doc.status == \"Approved\"",
+   "fieldname": "cheque_number",
+   "fieldtype": "Data",
+   "label": "Cheque Number"
+  },
+  {
+   "fieldname": "original_invoice_section",
+   "fieldtype": "Section Break",
+   "label": "Original Invoice"
+  },
+  {
+   "fieldname": "orig_invoice",
+   "fieldtype": "Link",
+   "label": "Invoice",
+   "options": "Sales Invoice"
+  },
+  {
+   "fieldname": "original_invoice_items",
+   "fieldtype": "Table",
+   "label": "Original Invoice items",
+   "options": "Original Invoice Details"
+  },
+  {
+   "fieldname": "replacement_invoice_section",
+   "fieldtype": "Section Break",
+   "label": "Replacement Invoice"
+  },
+  {
+   "fieldname": "rep_invoice",
+   "fieldtype": "Link",
+   "label": "Invoice",
+   "options": "Sales Invoice"
+  },
+  {
+   "fieldname": "replacement_invoice_items",
+   "fieldtype": "Table",
+   "label": "Replacement Invoice Items",
+   "options": "Replacement Invoice Details"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Shipping Claims",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "orig_invoice.results",
+   "fieldname": "results",
+   "fieldtype": "Data",
+   "label": "Results"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fetch_from": "orig_invoice.approved_amount",
+   "fieldname": "approved_amount",
+   "fieldtype": "Currency",
+   "label": "Approved Amount"
+  },
+  {
+   "default": "0",
+   "fetch_from": "orig_invoice.requested_amount",
+   "fieldname": "requested_amount",
+   "fieldtype": "Currency",
+   "label": "Requested Amount"
+  },
+  {
+   "fetch_from": "orig_invoice.reason_for_claim",
+   "fieldname": "reason_for_claim",
+   "fieldtype": "Small Text",
+   "label": "Reason for Claim"
+  },
+  {
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "rep_invoice.claim_date",
+   "fieldname": "rep_claim_date",
+   "fieldtype": "Date",
+   "label": "Claim Date"
+  },
+  {
+   "fetch_from": "rep_invoice.claim_number",
+   "fieldname": "rep_claim_number",
+   "fieldtype": "Data",
+   "label": "Claim Number"
+  },
+  {
+   "fetch_from": "rep_invoice.results",
+   "fieldname": "rep_results",
+   "fieldtype": "Data",
+   "label": "Results"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fetch_from": "rep_invoice.approved_amount",
+   "fieldname": "rep_approved_amount",
+   "fieldtype": "Currency",
+   "label": "Approved Amount"
+  },
+  {
+   "default": "0",
+   "fetch_from": "rep_invoice.requested_amount",
+   "fieldname": "rep_requested_amount",
+   "fieldtype": "Currency",
+   "label": "Requested Amount"
+  },
+  {
+   "fetch_from": "rep_invoice.reason_for_claim",
+   "fieldname": "rep_request_for_claim",
+   "fieldtype": "Small Text",
+   "label": "Request for Claim"
+  },
+  {
+   "fieldname": "section_break_27",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "orig_tracking_numbers",
+   "fieldtype": "Table",
+   "label": "Tracking Numbers",
+   "options": "Shipping Claims Tracking Numbers"
+  },
+  {
+   "fieldname": "rep_tracking_numbers",
+   "fieldtype": "Table",
+   "label": "Tracking Numbers",
+   "options": "Replacement Tracking Numbers"
+  },
+  {
+   "fetch_from": "orig_invoice.po_no",
+   "fieldname": "orig_po_number",
+   "fieldtype": "Data",
+   "label": "PO Number"
+  },
+  {
+   "fetch_from": "rep_invoice.po_no",
+   "fieldname": "rep_po_number",
+   "fieldtype": "Data",
+   "label": "PO Number"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-02-05 00:34:30.338393",
+ "modified_by": "Administrator",
+ "module": "Global App",
+ "name": "Shipping Claims",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
